@@ -1,0 +1,84 @@
+/*
+PointPhoto is licensed under the Apache License 2.0 license
+https://github.com/TRP-Solutions/boot-some/blob/master/LICENSE
+*/
+.pointphoto-camera-viewer,
+.pointphoto-camera-viewer * {
+	margin: 0px;
+	padding: 0px;
+}
+
+.pointphoto-camera,
+.pointphoto-camera .pointphoto-camera-viewer,
+.pointphoto-camera[data-pointphoto-state="active"] .pointphoto-camera-controls,
+.pointphoto-image {
+	display: flex;
+}
+
+.pointphoto-camera:not([data-pointphoto-state]),
+.pointphoto-camera:not([data-pointphoto-state="active"]) .pointphoto-camera-viewer video,
+.pointphoto-camera:not([data-pointphoto-state="active"]) .pointphoto-camera-viewer img,
+.pointphoto-camera .pointphoto-camera-viewer img:not([src]),
+.pointphoto-camera:not([data-pointphoto-state="active"]) .pointphoto-camera-controls,
+.pointphoto-camera:not([data-pointphoto-state="loading"]) .pointphoto-camera-loading,
+.pointphoto-image:not([data-pointphoto-warning="required"]) .pointphoto-warning,
+.pointphoto-image:not([data-pointphoto-state="image"]:not([data-pointphoto-source="preset"])) button[data-pointphoto="clear-button"],
+.pointphoto-hidden {
+	display: none;
+}
+
+.pointphoto-camera,
+.pointphoto-image {
+	flex-direction: column;
+	position: relative;
+}
+
+.pointphoto-image {
+	max-width: min(20rem, 100vw - 4rem);
+}
+
+.pointphoto-camera .pointphoto-camera-viewer video,
+.pointphoto-camera .pointphoto-camera-viewer img {
+	width:100%;
+	max-width: calc(100vw - 2rem);
+	max-height: calc(100vh - .5rem - 2px);
+	max-height: calc(100dvh - .5rem - 2px);
+}
+
+.pointphoto-camera .pointphoto-camera-viewer .pointphoto-camera-loading {
+	min-width: 20rem;
+	min-height: 3rem;
+	text-align: center;
+}
+
+.pointphoto-camera .pointphoto-camera-viewer img {
+	position: absolute;
+	top: 2rem;
+	left: 2rem;
+	width: calc(100% - 4rem);
+	height: calc(100% - 4rem);
+	max-width: calc(100vw - 4rem);
+	max-height: calc(100vh - 4rem);
+	max-height: calc(100dvh - 4rem);
+	object-fit: contain;
+}
+
+.pointphoto-camera[data-pointphoto-orientation=portrait] img {
+	transform: rotate(90deg) scale(var(--pointphoto-overlay-ratio));
+}
+
+.pointphoto-camera .pointphoto-camera-controls {
+	display: flex;
+	justify-content: center;
+	margin-top: -3rem;
+	min-height: 3rem;
+	z-index: 1;
+}
+
+.pointphoto-camera[data-pointphoto-orientation=portrait] .pointphoto-camera-controls {
+	writing-mode: vertical-rl;
+	align-items: end;
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+}
