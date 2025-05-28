@@ -22,7 +22,7 @@ https://github.com/TRP-Solutions/boot-some/blob/master/LICENSE
 .pointphoto-camera:not([data-pointphoto-state="active"]) .pointphoto-camera-controls,
 .pointphoto-camera:not([data-pointphoto-state="loading"]) .pointphoto-camera-loading,
 .pointphoto-image:not([data-pointphoto-warning="required"]) .pointphoto-warning,
-.pointphoto-image:not([data-pointphoto-state="image"]:not([data-pointphoto-source="preset"])) button[data-pointphoto="clear-button"],
+.pointphoto-image:not([data-pointphoto-state="image"]:not([data-pointphoto-state="preset"])) button[data-pointphoto="clear-button"],
 .pointphoto-hidden {
 	display: none;
 }
