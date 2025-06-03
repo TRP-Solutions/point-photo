@@ -5,9 +5,9 @@ PointPhoto is comprised of a javascript file `lib/PointPhoto.js` and a css file 
 ```
 PointPhoto.init();
 ```
-`init` will find all elements on the page with the classname `pointphoto-image` and replace any contents with generated `div`, `img`, `input`, and `button` elements and create a `PointPhotoImage` object for each of them.
+`init` will find all elements on the page with the classname `pointphoto-image` and append generated `div`, `img`, `input`, and `button` elements and create a `PointPhotoImage` object for each of them.
 
-Clicking the camera button of a `PointPhotoImage` will find the first element with the classname `pointphoto-camera` and replace any contens with generated elements and create a `PointPhotoCamera` object.
+Clicking the camera button of a `PointPhotoImage` will find the first element with the classname `pointphoto-camera` and append generated elements and create a `PointPhotoCamera` object.
 
 ## PointPhotoImage
 `PointPhotoImage` uses the following data attributes on the HTML element:
