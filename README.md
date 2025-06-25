@@ -3,11 +3,12 @@
 PointPhoto is comprised of a javascript file `lib/PointPhoto.js` and a css file `lib/PointPhoto.css`
 
 ```
-PointPhoto.init();
+PointPhoto.init(options);
 ```
-`init` will find all elements on the page with the classname `pointphoto-image` and append generated `div`, `img`, `input`, and `button` elements and create a `PointPhotoImage` object for each of them.
+`init` takes an object with two optional members: `camera` and `album`.
 
-Clicking the camera button of a `PointPhotoImage` will find the first element with the classname `pointphoto-camera` and append generated elements and create a `PointPhotoCamera` object.
+* `camera` is either a `PointPhotoCamera`, an element on the page, or a CSS selector used to find an element, which is then used to generate a new `PointPhotoCamera` and will have it's contents replaced. Defaults to `'.pointphoto-camera'`
+* `album` is either a `NodeList`, an array of elements on the page, or a CSS selector. The given elements are used to generate new `PointPhotoImage` instances and will have their contents replaced. Defaults to `'.pointphoto-image'`
 
 ## PointPhotoImage
 `PointPhotoImage` uses the following data attributes on the HTML element:
@@ -32,7 +33,6 @@ The following classes are used:
 * `.pointphoto-camera-leading`
 * `.pointphoto-image`
 * `.pointphoto-warning`
-* `.pointphoto-hidden`
 
 The following data attributes are used:
 
