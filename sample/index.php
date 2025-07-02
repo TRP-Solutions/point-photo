@@ -9,7 +9,6 @@ https://github.com/TRP-Solutions/boot-some/blob/master/LICENSE
 <head>
 	<title>PointPhoto sample</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="../lib/PointPhoto.css">
 	<?php
 	echo '<script src="../lib/PointPhoto.js?'.random_int(1,1000000).'"></script>';
 	?>
@@ -20,9 +19,13 @@ https://github.com/TRP-Solutions/boot-some/blob/master/LICENSE
 			border: 1px solid black;
 			width: max-content;
 		}
+
+		.pointphoto-image {
+			max-width: min(20rem, 100vw - 4rem);
+		}
 	</style>
 </head>
-<body onload="PointPhoto.init();">
+<body onload="PointPhoto.init({camera:document.querySelector('#camera')});">
 	<?php
 	if(!empty($_FILES)){
 		foreach($_FILES as $name => $file){
@@ -40,15 +43,15 @@ https://github.com/TRP-Solutions/boot-some/blob/master/LICENSE
 		}
 	}
 	?>
-	<div class="pointphoto-camera"></div>
-	<form enctype="multipart/form-data" method="post" action=".">
+	<div id="camera"></div>
+	<form enctype="multipart/form-data" method="post" action="." onsubmit="console.log(PointPhoto.album);if(PointPhoto.album.some(image=>image.warn_required())){event.preventDefault();}">
 		<div class="container">
 			<label>image1</label>
 			<div class="pointphoto-image" data-pointphoto-name="image1" data-pointphoto-preset="preset.svg"></div>
 		</div>
 		<div class="container">
 			<label>image2</label>
-			<div class="pointphoto-image" data-pointphoto-name="image2" data-pointphoto-overlay="overlay.svg"></div>
+			<div class="pointphoto-image" data-pointphoto-name="image2" data-pointphoto-overlay="overlay.svg" data-pointphoto-required></div>
 		</div>
 		<div class="container">
 			<label>image3</label>
