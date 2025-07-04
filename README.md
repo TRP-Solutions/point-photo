@@ -2,7 +2,7 @@
 
 PointPhoto is comprised of a javascript file `lib/PointPhoto.js` and a css file `lib/PointPhoto.css`
 
-```
+```JavaScript
 PointPhoto.init(options);
 ```
 `init` takes an object with optional members: `camera`, `album`, `facing`, `orientation`.
@@ -21,7 +21,7 @@ PointPhoto.init(options);
 
 
 ## PointPhotoCamera
-```
+```JavaScript
 var camera = new PointPhotoCamera(container, options);
 ```
 
@@ -37,4 +37,13 @@ To customize the subcomponents of PointPhoto, replace these functions on the `Po
 * `PointPhoto.create_button(name, onclick, type, disabled)`
 * `PointPhoto.create_icon(name)`
 * `PointPhoto.create_warning()`
-* `PointPhoto.function create_camera_loading()`
+* `PointPhoto.create_camera_loading()`
+
+## Example
+```JavaScript
+(new PointPhotoCamera(document.querySelector('#camera'))).open('filename', handle_file);
+
+function handle_file(file){
+	// ...
+}
+```
