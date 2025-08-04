@@ -9,9 +9,8 @@ https://github.com/TRP-Solutions/boot-some/blob/master/LICENSE
 <head>
 	<title>PointPhoto sample</title>
 	<meta charset="utf-8">
-	<?php
-	echo '<script src="../lib/PointPhoto.js?'.random_int(1,1000000).'"></script>';
-	?>
+	<script src="../lib/PointPhoto.js"></script>
+	<script src="../lib/PointPhotoImage.js"></script>
 	<style>
 		.container {
 			padding: 1rem;
@@ -25,7 +24,7 @@ https://github.com/TRP-Solutions/boot-some/blob/master/LICENSE
 		}
 	</style>
 </head>
-<body onload="PointPhoto.init({camera:document.querySelector('#camera')});">
+<body onload="PointPhotoImage.init({album:'.pointphoto-image', camera:document.querySelector('#camera')});">
 	<?php
 	if(!empty($_FILES)){
 		foreach($_FILES as $name => $file){
@@ -44,7 +43,7 @@ https://github.com/TRP-Solutions/boot-some/blob/master/LICENSE
 	}
 	?>
 	<div id="camera"></div>
-	<form enctype="multipart/form-data" method="post" action="." onsubmit="console.log(PointPhoto.album);if(PointPhoto.album.some(image=>image.warn_required())){event.preventDefault();}">
+	<form enctype="multipart/form-data" method="post" action="." onsubmit="if(PointPhotoImage.album.some(image=>image.warn_required())){event.preventDefault();}">
 		<div class="container">
 			<label>image1</label>
 			<div class="pointphoto-image" data-pointphoto-name="image1" data-pointphoto-preset="preset.svg"></div>
